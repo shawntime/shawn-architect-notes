@@ -2,6 +2,9 @@ package com.shawntime.enjoy.architect.concurrency.forkjoin.arraysum;
 
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * 数组求和
+ */
 import com.shawntime.enjoy.architect.concurrency.SleepUtils;
 
 public class ArraySumTask extends RecursiveTask<Long> {
