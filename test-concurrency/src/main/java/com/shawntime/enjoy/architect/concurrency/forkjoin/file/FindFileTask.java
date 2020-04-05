@@ -7,6 +7,7 @@ import java.util.concurrent.RecursiveAction;
 
 /**
  * 异步的方式不带返回值
+ * 遍历某个路径下的所有文件，找到所有mp4格式的文件并输出
  */
 public class FindFileTask extends RecursiveAction {
 
