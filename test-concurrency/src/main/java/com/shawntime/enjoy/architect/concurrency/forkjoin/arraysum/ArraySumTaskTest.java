@@ -6,10 +6,10 @@ import java.util.concurrent.ForkJoinTask;
 public class ArraySumTaskTest {
 
     public static void main(String[] args) {
-        int arrayLength = 50000;
+        int arrayLength = 5000;
         int[] array = ArrayUtils.makeArray(arrayLength);
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        int minNum = arrayLength / 50;
+        int minNum = 100;
         ForkJoinTask<Long> task = new ArraySumTask(array, 0, array.length - 1, minNum);
         long startTime = System.currentTimeMillis();
         System.out.println("Task is Running...");

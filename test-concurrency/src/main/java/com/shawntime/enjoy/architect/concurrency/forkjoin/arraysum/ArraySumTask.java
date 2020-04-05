@@ -23,17 +23,18 @@ public class ArraySumTask extends RecursiveTask<Long> {
 
     @Override
     protected Long compute() {
-        if (endIndex - startIndex > minNum) {
+        if (endIndex - startIndex < minNum) {
             // 已经是最小了
             Long result = 0L;
-            for (int i = 0; i < array.length; ++i) {
+            for (int i = startIndex; i <= endIndex; ++i) {
                 SleepUtils.sleepByMilliSeconds(1);
                 result += array[i];
             }
             return result;
         } else {
+            System.out.println("继续拆分....");
             // 继续拆分
-            int middle = (endIndex - startIndex) / 2;
+            int middle = (endIndex + startIndex) / 2;
             ArraySumTask leftTask = new ArraySumTask(array, startIndex, middle, minNum);
             ArraySumTask rightTask = new ArraySumTask(array, middle + 1, endIndex, minNum);
             // 提交任务
