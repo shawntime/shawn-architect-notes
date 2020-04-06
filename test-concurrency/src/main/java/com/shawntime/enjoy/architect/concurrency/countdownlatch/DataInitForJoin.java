@@ -2,6 +2,9 @@ package com.shawntime.enjoy.architect.concurrency.countdownlatch;
 
 import com.shawntime.enjoy.architect.concurrency.SleepUtils;
 
+/**
+ * join方法实现线程阻塞
+ */
 public class DataInitForJoin {
 
     private static class InitThread extends Thread {

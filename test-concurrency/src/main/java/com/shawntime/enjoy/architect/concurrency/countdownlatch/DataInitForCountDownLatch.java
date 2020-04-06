@@ -4,6 +4,9 @@ import java.util.concurrent.CountDownLatch;
 
 import com.shawntime.enjoy.architect.concurrency.SleepUtils;
 
+/**
+ * countDownLatch方法实现线程阻塞
+ */
 public class DataInitForCountDownLatch {
 
     private static class InitThread extends Thread {
