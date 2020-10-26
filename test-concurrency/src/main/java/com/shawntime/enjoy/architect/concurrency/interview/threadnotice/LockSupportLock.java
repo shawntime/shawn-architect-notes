@@ -1,6 +1,5 @@
 package com.shawntime.enjoy.architect.concurrency.interview.threadnotice;
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.LockSupport;
 
 /**
