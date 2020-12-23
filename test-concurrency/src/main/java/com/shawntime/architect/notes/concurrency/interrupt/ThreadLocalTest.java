@@ -2,12 +2,7 @@ package com.shawntime.architect.notes.concurrency.interrupt;
 
 public class ThreadLocalTest {
 
-    private static final ThreadLocal<Integer> COUNT = new ThreadLocal<Integer>() {
-        @Override
-        protected Integer initialValue() {
-            return 1;
-        }
-    };
+    private static final ThreadLocal<Integer> COUNT = new ThreadLocal<>();
 
     private static class MyRunnable implements Runnable {
 
@@ -15,6 +10,9 @@ public class ThreadLocalTest {
         public void run() {
             for (int i = 0; i < 10; ++i) {
                 Integer value = COUNT.get();
+                if (value == null) {
+                    value = 0;
+                }
                 COUNT.set(++value);
             }
             System.out.println(Thread.currentThread().getName() + " : " + COUNT.get());
