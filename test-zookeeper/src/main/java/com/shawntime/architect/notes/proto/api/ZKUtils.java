@@ -26,7 +26,7 @@ public class ZKUtils {
         String connectString = zkConfigs.stream()
                 .map(config -> config.getIp() + ":" + config.getPort())
                 .collect(Collectors.joining(",")) + parentPath;
-        int sessionTimeout = 3000;
+        int sessionTimeout = 10 * 60 * 1000;
         watcher = new DefaultWatcher(countDownLatch);
         try {
             // 异步的
