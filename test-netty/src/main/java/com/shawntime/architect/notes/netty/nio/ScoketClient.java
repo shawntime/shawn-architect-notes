@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 import org.apache.commons.io.IOUtils;
 
@@ -18,7 +19,6 @@ public class ScoketClient {
         OutputStream outputStream = socket.getOutputStream();
         IOUtils.write("你好服务端哈哈哈！！！！！！！".getBytes(), outputStream);
         outputStream.flush();
-
         byte[] bytes = new byte[1024];
         InputStream inputStream = socket.getInputStream();
         int read = inputStream.read(bytes);
