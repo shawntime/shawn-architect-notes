@@ -40,6 +40,27 @@ public class MyClassLoaderTest {
             this.classPath = classPath;
         }
 
+        /**
+         * 打破双亲委派机制
+         */
+        @Override
+        protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+            synchronized (getClassLoadingLock(name)) {
+                Class<?> c = findLoadedClass(name);
+                if (c == null) {
+                    if (name.startsWith("com.shawntime")) {
+                        c = findClass(name);
+                    } else {
+                        c = super.loadClass(name, resolve);
+                    }
+                }
+                if (resolve) {
+                    resolveClass(c);
+                }
+                return c;
+            }
+        }
+
         @Override
         protected Class<?> findClass(String name) throws ClassNotFoundException {
             String fileName = name.replaceAll("\\.", "/");

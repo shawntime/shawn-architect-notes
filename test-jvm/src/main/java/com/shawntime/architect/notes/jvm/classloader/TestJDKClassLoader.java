@@ -15,6 +15,7 @@ public class TestJDKClassLoader {
         System.out.println(com.sun.crypto.provider.DESKeyFactory.class.getClassLoader().getClass().getName());
         // 应用类加载器：sun.misc.Launcher$AppClassLoader@18b4aac2
         System.out.println(TestJDKClassLoader.class.getClassLoader());
+        // 应用类加载器
         System.out.println(ClassLoader.getSystemClassLoader().getClass().getName());
 
         ClassLoader classLoader = TestJDKClassLoader.class.getClassLoader();
