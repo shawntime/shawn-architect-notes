@@ -1,7 +1,5 @@
 package com.shawntime.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import com.shawntime.service.IMallOrderService;
