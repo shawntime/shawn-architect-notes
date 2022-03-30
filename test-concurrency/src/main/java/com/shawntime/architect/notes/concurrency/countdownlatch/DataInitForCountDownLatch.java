@@ -21,7 +21,7 @@ public class DataInitForCountDownLatch {
         @Override
         public void run() {
             try {
-                SleepUtils.sleepByMilliSeconds(100);
+                SleepUtils.sleepBySeconds(Integer.MAX_VALUE);
                 System.out.println(Thread.currentThread().getName() + "线程初始化第一步完成");
             } finally {
                 countDownLatch.countDown();

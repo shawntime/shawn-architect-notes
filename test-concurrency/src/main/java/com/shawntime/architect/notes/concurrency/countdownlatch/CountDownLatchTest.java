@@ -24,13 +24,13 @@ public class CountDownLatchTest {
         new Thread(() -> {
             {
                 try {
-                    SleepUtils.sleepBySeconds(1);
+                    SleepUtils.sleepBySeconds(10);
                     System.out.println(Thread.currentThread().getName() + " really init worker step 1...");
                 } finally {
                     countDownLatch.countDown();
                 }
                 try {
-                    SleepUtils.sleepBySeconds(1);
+                    SleepUtils.sleepBySeconds(10);
                     System.out.println(Thread.currentThread().getName() + " really init worker step 2...");
                 } finally {
                     countDownLatch.countDown();

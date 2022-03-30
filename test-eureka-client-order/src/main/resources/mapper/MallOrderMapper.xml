@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shawntime.dao.mapper.MallOrderMapper">
+
+    <select id="getMallOrderList" resultType="com.shawntime.dao.entity.MallOrder">
+        SELECT
+            id,
+            user_id AS userId,
+            user_name AS userName,
+            product_id AS productId,
+            product_name AS productName
+        FROM
+            mall_order
+        WHERE
+            user_id = #{userId}
+    </select>
+
+</mapper>
