@@ -1,4 +1,4 @@
-package com.shawntime.entity;
+package com.shawntime.api.order.model;
 
 import lombok.Getter;
 import lombok.Setter;

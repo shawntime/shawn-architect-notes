@@ -67,6 +67,12 @@
             <version>1.1.23</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.shawntime</groupId>
+            <artifactId>test-spring-cloud-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
