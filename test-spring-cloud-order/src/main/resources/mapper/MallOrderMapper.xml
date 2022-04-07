@@ -16,4 +16,22 @@
             user_id = #{userId}
     </select>
 
+    <insert id="saveMallOrder"
+            parameterType="com.shawntime.dao.entity.MallOrder"
+            useGeneratedKeys="true"
+            keyColumn="id"
+            keyProperty="id">
+        INSERT INTO mall_order (
+            user_id,
+            user_name,
+            product_id,
+            product_name
+        ) VALUES (
+            #{user_id},
+            #{user_name},
+            #{product_id},
+            #{product_name}
+        )
+    </insert>
+
 </mapper>

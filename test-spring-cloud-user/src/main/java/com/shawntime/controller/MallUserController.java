@@ -2,10 +2,10 @@ package com.shawntime.controller;
 
 import javax.annotation.Resource;
 
-import com.shawntime.api.user.MallUserApi;
-import com.shawntime.api.user.model.MallUser;
-import com.shawntime.api.user.model.MallUserOrder;
-import com.shawntime.service.IMallUserService;
+import com.shawntime.api.user.IMallUserService;
+import com.shawntime.api.user.model.MallUserIn;
+import com.shawntime.api.user.model.MallUserOrderOut;
+import com.shawntime.api.user.model.MallUserOut;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,26 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/mall/user")
-public class MallUserController implements MallUserApi {
+public class MallUserController {
 
-    @Resource
-    private IMallUserService mallUserService;
+    @Resource(name = "mallUserImplService")
+    private IMallUserService mallUserImplService;
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    @Override
-    public MallUser getMallUser(int userId) {
-        return mallUserService.getMallUser(userId);
+    public MallUserOut getMallUser(int userId) {
+        return mallUserImplService.getMallUser(userId);
     }
 
     @PostMapping("/save")
-    @Override
-    public int saveMallUser(@RequestBody MallUser mallUser) {
-        return mallUserService.saveMallUser(mallUser);
+    public int saveMallUser(@RequestBody MallUserIn mallUser) {
+        return mallUserImplService.saveMallUser(mallUser);
     }
 
     @RequestMapping(value = "/orderInfo", method = RequestMethod.GET)
-    @Override
-    public MallUserOrder getMallUserOrder(int userId) {
-        return mallUserService.getMallUserOrder(userId);
+    public MallUserOrderOut getMallUserOrder(int userId) {
+        return mallUserImplService.getMallUserOrder(userId);
     }
 }

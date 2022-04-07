@@ -1,5 +1,6 @@
 package com.shawntime.api.order.model;
 
+import com.shawntime.api.product.model.ProductOut;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class MallOrder {
+public class MallOrderOut {
 
     private int id;
 
@@ -20,4 +21,6 @@ public class MallOrder {
     private int productId;
 
     private String productName;
+
+    private ProductOut productOut;
 }

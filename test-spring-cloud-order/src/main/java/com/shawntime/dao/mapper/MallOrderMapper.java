@@ -12,4 +12,6 @@ import org.apache.ibatis.annotations.Param;
 public interface MallOrderMapper {
 
     List<MallOrder> getMallOrderList(@Param("userId") int userId);
+
+    int saveMallOrder(@Param("order") MallOrder order);
 }

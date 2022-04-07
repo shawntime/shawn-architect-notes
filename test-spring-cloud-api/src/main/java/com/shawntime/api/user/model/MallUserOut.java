@@ -4,9 +4,9 @@ package com.shawntime.api.user.model;
  * @author mashaohua
  * @date 2022/3/30 17:11
  */
-public class MallUser {
+public class MallUserOut {
 
-    private int id;
+    private int userId;
 
     private int username;
 
@@ -14,12 +14,12 @@ public class MallUser {
 
     private int sex;
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getUsername() {

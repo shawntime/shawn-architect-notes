@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+    <mapper namespace="com.shawntime.dao.mapper.MallUserMapper">
+
+    <insert id="saveUser" parameterType="com.shawntime.dao.entity.MallUser">
+        INSERT INTO mall_user (
+            username,
+            age,
+            sex
+        ) VALUES (
+            #{username},
+            #{age},
+            #{sex}
+        )
+    </insert>
+
+    <select id="getMallUser" resultType="com.shawntime.dao.entity.MallUser">
+        SELECT
+            id,
+            username,
+            age,
+            sex
+        FROM
+            mall_user
+        WHERE
+            id = #{userId}
+    </select>
+
+</mapper>

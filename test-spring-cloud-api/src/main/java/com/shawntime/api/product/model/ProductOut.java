@@ -7,22 +7,25 @@ import lombok.Setter;
 
 /**
  * @author mashaohua
- * @date 2022/3/30 17:41
+ * @date 2022/4/6 12:21
  */
 @Getter
 @Setter
-public class MallProduct {
+public class ProductOut {
 
-    private int id;
+    private int productId;
 
     private String productName;
 
-    private int productCategoryId;
+    private BigDecimal productPrice;
+
+    private int productNum;
 
     private String productDesc;
 
     private String productImageUrl;
 
-    private BigDecimal productPrice;
+    private int categoryId;
 
+    private String cateGoryName;
 }

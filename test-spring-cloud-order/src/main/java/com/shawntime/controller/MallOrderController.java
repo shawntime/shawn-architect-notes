@@ -2,7 +2,7 @@ package com.shawntime.controller;
 
 import javax.annotation.Resource;
 
-import com.shawntime.service.IMallOrderService;
+import com.shawntime.api.order.IMallOrderService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/mall/order")
 public class MallOrderController {
 
-    @Resource
-    private IMallOrderService mallOrderService;
+    @Resource(name = "mallOrderImplService")
+    private IMallOrderService mallOrderImplService;
 
     @RequestMapping(value = "/orderList", method = RequestMethod.GET)
     public Object orderList(Integer userId) {
-        return mallOrderService.getMallOrderList(userId);
+        return mallOrderImplService.getMallOrderList(userId);
     }
 
 }
