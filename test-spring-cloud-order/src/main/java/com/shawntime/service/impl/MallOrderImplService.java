@@ -43,6 +43,8 @@ public class MallOrderImplService implements IMallOrderService {
                     orderOut.setProductId(order.getProductId());
                     orderOut.setProductName(order.getProductName());
                     // Ribbon方式
+                    // String url = "http://SERVER-PRODUCT/mall/product/detail?productId=1";
+                    // ProductOut product = restTemplate.getForObject("url", ProductOut.class);
                     // ResponseEntity<ProductOut> productOut = restTemplate.getForEntity("http://SERVER-PRODUCT/mall/product/detail?productId=1", ProductOut.class);
                     // OpenFeign方式
                     ProductOut productOut = productService.getProductOut(order.getProductId());
