@@ -2,6 +2,7 @@ package com.shawntime.service.impl;
 
 import javax.annotation.Resource;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.shawntime.api.product.IProductService;
 import com.shawntime.api.product.model.ProductOut;
 import com.shawntime.dao.entity.Category;
@@ -23,6 +24,7 @@ public class ProductImplService implements IProductService {
     @Resource
     private CategoryMapper categoryMapper;
 
+    @HystrixCommand(fallbackMethod = "callbackProductOut")
     @Override
     public ProductOut getProductOut(int productId) {
         Product product = productMapper.getProduct(productId);
@@ -41,6 +43,13 @@ public class ProductImplService implements IProductService {
         if (category != null) {
             productOut.setCateGoryName(category.getCateGoryName());
         }
+        return productOut;
+    }
+
+    private ProductOut callbackProductOut(int productId) {
+        ProductOut productOut = new ProductOut();
+        productOut.setProductId(productId);
+        productOut.setProductName("查询失败熔断处理");
         return productOut;
     }
 }
