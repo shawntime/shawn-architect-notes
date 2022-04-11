@@ -32,3 +32,9 @@ eureka:
       defaultZone: http://shawntime9101.com:9101/eureka,http://shawntime9102.com:9102/eureka,http://shawntime9103.com:9103/eureka
     fetch-registry: true
     register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

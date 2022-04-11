@@ -2,6 +2,7 @@ package com.shawntime.controller;
 
 import javax.annotation.Resource;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.shawntime.api.product.IProductService;
 import com.shawntime.api.product.model.ProductOut;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,15 @@ public class ProductController {
     @Resource(name = "productImplService")
     private IProductService productImplService;
 
+    @HystrixCommand(fallbackMethod = "fallbackProduct")
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     public ProductOut product(Integer productId) {
         return productImplService.getProductOut(productId);
+    }
+
+    private ProductOut fallbackProduct(Integer productId) {
+        ProductOut productOut = new ProductOut();
+        productOut.setProductId(productId);
+        return productOut;
     }
 }
