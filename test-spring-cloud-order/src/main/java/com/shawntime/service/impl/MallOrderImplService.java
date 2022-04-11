@@ -4,14 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Resource;
 
-import com.shawntime.api.product.IProductService;
-import com.shawntime.api.product.model.ProductOut;
 import com.shawntime.api.order.IMallOrderService;
 import com.shawntime.api.order.model.MallOrderIn;
 import com.shawntime.api.order.model.MallOrderOut;
+import com.shawntime.api.product.IProductService;
+import com.shawntime.api.product.model.ProductOut;
 import com.shawntime.dao.entity.MallOrder;
 import com.shawntime.dao.mapper.MallOrderMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

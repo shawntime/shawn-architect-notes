@@ -24,7 +24,7 @@ public class ProductImplService implements IProductService {
     @Resource
     private CategoryMapper categoryMapper;
 
-    @HystrixCommand(fallbackMethod = "callbackProductOut")
+//    @HystrixCommand(fallbackMethod = "callbackProductOut")
     @Override
     public ProductOut getProductOut(int productId) {
         Product product = productMapper.getProduct(productId);

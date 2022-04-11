@@ -1,42 +1,7 @@
 server:
   port: 7002
+
 spring:
-  application:
-    name: server-order
-  datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://127.0.0.1:3306/mall_order
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    filters: stat,wall,log4j 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-    maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-
-# 引入Eureka配置
-eureka:
-  client:
-    service-url:
-      defaultZone: http://shawntime9101.com:9101/eureka,http://shawntime9102.com:9102/eureka,http://shawntime9103.com:9103/eureka
-    fetch-registry: true
-    register-with-eureka: true
-
-
-
-
-
-
-
-
+  profiles:
+    include:
+      common

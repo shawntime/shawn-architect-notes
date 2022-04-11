@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2022/4/6 12:21
  */
 @Component
-@FeignClient(name = "SERVER-PRODUCT")
+@FeignClient(name = "SERVER-PRODUCT", fallbackFactory = ProductServiceFallBackFactory.class)
 public interface IProductService {
 
     @GetMapping("/mall/product/detail")
