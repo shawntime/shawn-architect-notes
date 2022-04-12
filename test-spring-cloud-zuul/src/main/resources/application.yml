@@ -1,0 +1,39 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: server-zuul #微服务名称
+
+# 引入Eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://shawntime9101.com:9101/eureka,http://shawntime9102.com:9102/eureka,http://shawntime9103.com:9103/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    instance-id: shawntime.com
+    prefer-ip-address: true
+    hostname: shawntime.com
+
+
+# 配置网关反向代理
+zuul:
+  routes:
+    orders:
+      serviceId: server-order
+      path: /o/**
+    products:
+      serviceId: server-product
+      path: /p/**
+    users:
+      serviceId: server-user
+      path: /u/**
+  # 不能再使用这个路径访问了，*： 忽略,隐藏全部的服务名称~
+  # ignored-services: "*"
+  # 设置公共的前缀
+  # prefix: /haust
+
+
+
